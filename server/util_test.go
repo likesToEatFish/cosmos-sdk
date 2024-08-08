@@ -27,7 +27,7 @@ import (
 	genutilcli "github.com/cosmos/cosmos-sdk/x/genutil/client/cli"
 )
 
-var cancelledInPreRun = errors.New("Cancelled in prerun")
+var cancelledInPreRun = errors.New("Cancelled in prerun") // nolint
 
 // Used in each test to run the function under test via Cobra
 // but to always halt the command
@@ -393,7 +393,7 @@ func TestInterceptConfigsPreRunHandlerPrecedenceConfigDefault(t *testing.T) {
 		t.Fatalf("function failed with [%T] %v", err, err)
 	}
 
-	if "tcp://127.0.0.1:26657" != serverCtx.Config.RPC.ListenAddress {
+	if "tcp://127.0.0.1:26657" != serverCtx.Config.RPC.ListenAddress { // nolint
 		t.Error("RPCListenAddress is not using default")
 	}
 }
