@@ -88,6 +88,11 @@ func SetSnapshotStore(snapshotStore *snapshots.Store) func(*BaseApp) {
 	return func(app *BaseApp) { app.SetSnapshotStore(snapshotStore) }
 }
 
+// SetStoreLoader allows us to customize the rootMultiStore initialization.
+func SetStoreLoader(loader StoreLoader) func(*BaseApp) {
+	return func(app *BaseApp) { app.SetStoreLoader(loader) }
+}
+
 func (app *BaseApp) SetName(name string) {
 	if app.sealed {
 		panic("SetName() on sealed BaseApp")
